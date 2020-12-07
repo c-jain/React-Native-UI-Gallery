@@ -18,11 +18,11 @@ class App extends Component {
         Stack = createStackNavigator();
         return (
             <NavigationContainer>
-                <Stack.Navigator initialRouteName="SplashScreen" >
-                    <Stack.Screen name="MainScreen" component={MainScreen} />
-                    <Stack.Screen name="RegistrationScreen" component={RegistrationScreen} />
-                    <Stack.Screen name="LoginScreen" component={LoginScreen} />
-                    <Stack.Screen name="SplashScreen" component={SplashScreen} />
+                <Stack.Navigator initialRouteName="Main" >
+                    <Stack.Screen name="Main" component={MainScreen} />
+                    <Stack.Screen name="Registration" component={RegistrationScreen} />
+                    <Stack.Screen name="Login" component={LoginScreen} />
+                    <Stack.Screen name="Splash" component={SplashScreen} />
                 </Stack.Navigator>
             </NavigationContainer>
         );
