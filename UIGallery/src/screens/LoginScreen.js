@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { StyleSheet, ImageBackground } from "react-native";
 // Image imports
 import backgroundImage from "../assets/Authentication/Registration.png";
-// Components imports
+// Component imports
 import Login from "../components/login/Login";
 
 class LoginScreen extends Component {

@@ -19,23 +19,15 @@ class App extends Component {
         return (
             <NavigationContainer>
                 <StatusBar hidden={true}/>
-                <Stack.Navigator initialRouteName="Main" >
+                <Stack.Navigator initialRouteName="Main" headerMode={"none"} >
                     <Stack.Screen name="Main" component={MainScreen} />
-                    <Stack.Screen name="Registration" component={RegistrationScreen} options={{headerShown: false}} />
-                    <Stack.Screen name="Login" component={LoginScreen} options={{headerShown: false}} />
-                    <Stack.Screen name="Splash" component={SplashScreen} options={{headerShown: false}} />
+                    <Stack.Screen name="Registration" component={RegistrationScreen} />
+                    <Stack.Screen name="Login" component={LoginScreen} />
+                    <Stack.Screen name="Splash" component={SplashScreen} />
                 </Stack.Navigator>
             </NavigationContainer>
         );
     }
 }
-
-const styles = StyleSheet.create({
-    mainView: {
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center"
-    },
-});
 
 export default App;
