@@ -1,9 +1,9 @@
 // React imports
 import React, { Component } from "react";
 import { View, Text, StyleSheet, TextInput, TouchableOpacity } from "react-native";
-// Icons import
+// Icon imports
 import Ionicons from "react-native-vector-icons/Ionicons";
-// Utils import
+// Dimension utility imports
 import { windowWidth, windowHeight } from "../../utils/Dimensions";
 
 class Register extends Component {

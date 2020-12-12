@@ -7,7 +7,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from "react-native-vector-icons/Ionicons";
 // Screen imports
 import GalleryScreen from "./GalleryScreen";
-import OrderScreen from "./OrderScreen";
+import CartScreen from "./CartScreen";
 import ProfileScreen from "./ProfileScreen";
 
 class MainScreen extends Component {
@@ -21,7 +21,7 @@ class MainScreen extends Component {
 
                         if (route.name === "Gallery") {
                             iconName = focused ? "color-palette-sharp" : "color-palette-outline";
-                        } else if (route.name === "Order") {
+                        } else if (route.name === "Cart") {
                             iconName = focused ? "cart" : "cart-outline";
                         } else if (route.name === "Profile") {
                             iconName = focused ? "md-person-circle" : "md-person-circle-outline";
@@ -37,7 +37,7 @@ class MainScreen extends Component {
                 }}
             >
                 <Tab.Screen name="Gallery" component={GalleryScreen} />
-                <Tab.Screen name="Order" component={OrderScreen} />
+                <Tab.Screen name="Cart" component={CartScreen} />
                 <Tab.Screen name="Profile" component={ProfileScreen} />
             </Tab.Navigator>           
         );
