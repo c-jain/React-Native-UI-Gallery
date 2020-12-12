@@ -4,7 +4,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 // React imports
 import React, { Component } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, StatusBar } from "react-native";
 
 // Screen imports
 import MainScreen from "./src/screens/MainScreen";
@@ -18,11 +18,12 @@ class App extends Component {
         Stack = createStackNavigator();
         return (
             <NavigationContainer>
+                <StatusBar hidden={true}/>
                 <Stack.Navigator initialRouteName="Main" >
                     <Stack.Screen name="Main" component={MainScreen} />
-                    <Stack.Screen name="Registration" component={RegistrationScreen} />
-                    <Stack.Screen name="Login" component={LoginScreen} />
-                    <Stack.Screen name="Splash" component={SplashScreen} />
+                    <Stack.Screen name="Registration" component={RegistrationScreen} options={{headerShown: false}} />
+                    <Stack.Screen name="Login" component={LoginScreen} options={{headerShown: false}} />
+                    <Stack.Screen name="Splash" component={SplashScreen} options={{headerShown: false}} />
                 </Stack.Navigator>
             </NavigationContainer>
         );

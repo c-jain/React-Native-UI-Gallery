@@ -1,12 +1,17 @@
+// React imports
 import React, { Component } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { StyleSheet, ImageBackground } from "react-native";
+// Image imports
+import backgroundImage from "../assets/Authentication/Registration.png";
+// Components imports
+import Register from "../components/register/Register";
 
 class RegistrationScreen extends Component {
     render() {
         return (
-            <View style={styles.mainView}>
-                <Text>Registration</Text>
-            </View>
+            <ImageBackground source={backgroundImage} style={styles.mainView}>
+                <Register navigation={this.props.navigation} />
+            </ImageBackground>
         );
     }
 }
@@ -14,8 +19,7 @@ class RegistrationScreen extends Component {
 const styles = StyleSheet.create({
     mainView: {
         flex: 1,
-        justifyContent: "center",
-        alignItems: "center"
+        resizeMode: "cover"
     },
 });
 
