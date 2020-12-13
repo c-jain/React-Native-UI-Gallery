@@ -1,6 +1,7 @@
 // React imports
 import React, { Component } from "react";
 import { View, Text, StyleSheet, TextInput, TouchableOpacity } from "react-native";
+import auth from '@react-native-firebase/auth';
 // Icon imports
 import Ionicons from "react-native-vector-icons/Ionicons";
 // Dimension utility imports
@@ -17,6 +18,23 @@ class Register extends Component {
 
     handleRegister = () => {
         console.log("Email/Password: " + this.state.email + "/" + this.state.password);
+        auth()
+            .createUserWithEmailAndPassword(this.state.email, this.state.password)
+            .then((res) => {
+                console.log("createUser Response: " + JSON.stringify(res));
+                console.log("User account created & signed in!");
+            })
+            .catch(error => {
+                if (error.code === 'auth/email-already-in-use') {
+                  console.log('That email address is already in use!');
+                }
+            
+                if (error.code === 'auth/invalid-email') {
+                  console.log('That email address is invalid!');
+                }
+            
+                console.error(error);
+            });
     }
 
     handleGoogleRegister = () => {

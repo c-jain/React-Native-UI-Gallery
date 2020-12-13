@@ -3,6 +3,7 @@ import { View, Text, StyleSheet } from "react-native";
 
 class SplashScreen extends Component {
     render() {
+        console.log("Splash Screen");
         return (
             <View style={styles.mainView}>
                 <Text>Splash</Text>

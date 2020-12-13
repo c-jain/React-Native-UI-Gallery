@@ -1,6 +1,7 @@
 // React imports
 import React, { Component } from "react";
 import { View, Text, StyleSheet, TextInput, TouchableOpacity } from "react-native";
+import auth from '@react-native-firebase/auth';
 // Icon imports
 import Ionicons from "react-native-vector-icons/Ionicons";
 // Dimension utility imports
@@ -17,6 +18,15 @@ class Register extends Component {
 
     handleLogin = () => {
         console.log("Email/Password: " + this.state.email + "/" + this.state.password);
+        auth()
+            .signInWithEmailAndPassword(this.state.email, this.state.password)
+            .then((res) => {
+                console.log("signIn Response: " + JSON.stringify(res));
+                console.log("User signed in!");
+            })
+            .catch(error => {            
+                console.error(error);
+            });
     }
 
     handleGoogleLogin = () => {
