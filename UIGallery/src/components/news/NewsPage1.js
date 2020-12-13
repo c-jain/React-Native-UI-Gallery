@@ -11,9 +11,9 @@ class NewsPage1 extends Component {
         super(props);
         this.state = {
             data: [
-                {id: "2"},
-                {id: "3"},
                 {id: "1"},
+                {id: "3"},
+                {id: "3"},
                 {id: "4"},
                 {id: "5"},
             ]
