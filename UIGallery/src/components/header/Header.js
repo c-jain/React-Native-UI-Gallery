@@ -20,13 +20,12 @@ class Header extends Component {
 
 const styles = StyleSheet.create({
     mainView: {
-        backgroundColor: "white",
+        backgroundColor: "grey",
         justifyContent: "center",
         alignItems: "center",
         height: windowHeight / 15,
         width: "100%",
-        elevation: 20
-    },
+        elevation: 5    },
     text: {
         fontSize: 18,
         fontWeight: "700",

@@ -3,6 +3,8 @@ import React, { Component } from "react";
 import { View, Text, StyleSheet, FlatList, TouchableOpacity } from "react-native";
 // Component imports
 import Header from "../header/Header";
+// Dimension utility imports
+import { windowHeight, windowWidth } from "../../utils/Dimensions";
 
 class Finance extends Component {
     constructor(props) {
@@ -21,7 +23,9 @@ class Finance extends Component {
                 style={{padding: 10}}
                 onPress={() => this.props.navigation.navigate(item.route)}
             >
-                <Text>{item.Category}</Text>
+                <View style={styles.card}>
+                    <Text style={{fontSize: 20, fontWeight: "700"}}>{item.Category}</Text>
+                </View>
             </TouchableOpacity>
         );
     }
@@ -44,6 +48,16 @@ const styles = StyleSheet.create({
     mainView: {
         flex: 1,
     },
+    card: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        elevation: 5,
+        borderRadius: 3,
+        margin: 10,
+        // width: windowWidth / 3,
+        height: windowHeight / 5,
+    }
 });
 
 export default Finance;

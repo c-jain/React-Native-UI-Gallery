@@ -19,13 +19,15 @@ class ProfileScreen extends Component {
     render() {
         return (
             <View style={styles.mainView}>
-                < Header title="My Profile" /> 
-                <Text>Profile</Text>
-                <TouchableOpacity
-                    onPress={this.handleSignOut}
-                >
-                    <Text>Sign Out!</Text>
-                </TouchableOpacity>
+                < Header title="My Profile" />
+                <View style={{justifyContent: "center", alignItems: "center", flex: 1}}>
+                    <TouchableOpacity
+                        onPress={this.handleSignOut}
+                        style={{borderWidth: 1, borderRadius: 3, backgroundColor: "orange", padding: 10}}
+                    >
+                        <Text style={{fontWeight: "bold", fontSize: 20}}>Sign Out!</Text>
+                    </TouchableOpacity>
+                </View>
             </View>
         );
     }
