@@ -15,7 +15,7 @@ class GalleryScreen extends Component {
     render() {
         Stack = createStackNavigator();
         return (
-            <Stack.Navigator initialRouteName="SocialMediaScreen" headerMode={"none"} >
+            <Stack.Navigator initialRouteName="Gallery" headerMode={"none"} >
                 <Stack.Screen name="Gallery" component={Gallery} />
                 <Stack.Screen name="EcommerceScreen" component={EcommerceScreen} />
                 <Stack.Screen name="FinanceScreen" component={FinanceScreen} />
