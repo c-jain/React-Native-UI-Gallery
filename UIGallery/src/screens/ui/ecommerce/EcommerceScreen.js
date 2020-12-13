@@ -15,7 +15,7 @@ class EcommerceScreen extends Component {
         Stack = createStackNavigator();
         return (
             <Stack.Navigator initialRouteName="Ecommerce" headerMode={"none"} >
-                <Stack.Screen name="Ecommerce" component={Ecommerce} />
+                <Stack.Screen name="Ecommerce" component={Ecommerce}  />
                 <Stack.Screen name="EcommerceScreenPage1" component={EcommerceScreenPage1} />
                 <Stack.Screen name="EcommerceScreenPage2" component={EcommerceScreenPage2} />
             </Stack.Navigator>
