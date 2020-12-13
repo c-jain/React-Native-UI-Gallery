@@ -5,12 +5,17 @@ import { createStackNavigator } from "@react-navigation/stack";
 // React imports
 import React, { Component } from "react";
 import { View, Text, StyleSheet, StatusBar } from "react-native";
+// Firebase imports
 import auth from '@react-native-firebase/auth';
+// Google SignIn imports
+import { GoogleSignin } from '@react-native-community/google-signin';
 // Screen imports
 import MainScreen from "./src/screens/MainScreen";
 import RegistrationScreen from "./src/screens/RegistrationScreen";
 import LoginScreen from "./src/screens/LoginScreen";
 import SplashScreen from "./src/screens/SplashScreen";
+// DOT ENV imports
+import {CLIENT_ID} from "./ENV";
 
 const Stack = createStackNavigator();
 
@@ -23,7 +28,7 @@ class App extends Component {
         }
     }
 
-    // Listener to check state of user authentication
+    
     onAuthStateChanged = (user) => {
         console.log("user: " + JSON.stringify(user));
         this.setState({initializing : false});
@@ -37,7 +42,12 @@ class App extends Component {
     }
 
     componentDidMount() {
+        // Listener to check state of user authentication
         auth().onAuthStateChanged(this.onAuthStateChanged);
+        // Initialize Google SDK
+        GoogleSignin.configure({
+            webClientId: CLIENT_ID,
+        });
     }
     
     render() { 

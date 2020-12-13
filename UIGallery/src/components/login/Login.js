@@ -1,7 +1,10 @@
 // React imports
 import React, { Component } from "react";
 import { View, Text, StyleSheet, TextInput, TouchableOpacity } from "react-native";
+// Firebase imports
 import auth from '@react-native-firebase/auth';
+// Google SignIn imports
+import { GoogleSignin } from '@react-native-community/google-signin';
 // Icon imports
 import Ionicons from "react-native-vector-icons/Ionicons";
 // Dimension utility imports
@@ -29,8 +32,19 @@ class Register extends Component {
             });
     }
 
-    handleGoogleLogin = () => {
-        console.log("Email/Password: " + this.state.email + "/" + this.state.password);
+    handleGoogleLogin = async () => {
+        try {
+            // Get the users ID token
+            const { idToken } = await GoogleSignin.signIn();
+
+            // Create a Google credential with the token
+            const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+
+            // Sign-in the user with the credential
+            return auth().signInWithCredential(googleCredential);
+        } catch (err) {
+            console.log("Error while signing with google: " + err);
+        }
     }
 
     render() {
