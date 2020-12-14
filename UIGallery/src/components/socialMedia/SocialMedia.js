@@ -23,7 +23,11 @@ class SocialMedia extends Component {
             likePage2: 0,
             likeIconNamePage2: "like2",
             dislikePage2: 0,
-            dislikeIconNamePage2: "dislike2"
+            dislikeIconNamePage2: "dislike2",
+            cartValuePage1: "ADD CART",
+            colorPage1: "green",
+            cartValuePage2: "ADD CART",
+            colorPage2: "green"
         }
     }
 
@@ -103,6 +107,34 @@ class SocialMedia extends Component {
         }
     }
 
+    handleCart = async (category, route) => {
+        if (category === "Page1") {
+            if (this.state.cartValuePage1 === "ADD CART") {
+                this.setState({
+                    cartValuePage1: "DELETE CART",
+                    colorPage1: "red"
+                });
+            } else {
+                this.setState({
+                    cartValuePage1: "ADD CART",
+                    colorPage1: "green"
+                });
+            }
+        } else {
+            if (this.state.cartValuePage2 === "ADD CART") {
+                this.setState({
+                    cartValuePage2: "DELETE CART",
+                    colorPage2: "red"
+                });
+            } else {
+                this.setState({
+                    cartValuePage2: "ADD CART",
+                    colorPage2: "green"
+                });
+            }
+        }
+    }
+
     renderItem = ({ item }) => {
         return (
             <View style={{padding: 10}}>
@@ -123,8 +155,11 @@ class SocialMedia extends Component {
                             </TouchableOpacity>
                         </View>
                         <View style={styles.cart}>
-                            <TouchableOpacity style={styles.btn}>
-                                <Text style={styles.btnText}>hello</Text>
+                            <TouchableOpacity
+                                style={{...styles.btn, backgroundColor: item.Category === "Page1" ? this.state.colorPage1 : this.state.colorPage2 }}
+                                onPress={() => this.handleCart(item.Category, item.route)}
+                            >
+                                <Text style={styles.btnText}>{item.Category === "Page1" ? this.state.cartValuePage1 : this.state.cartValuePage2}</Text>
                             </TouchableOpacity>
                         </View>
                     </View>
